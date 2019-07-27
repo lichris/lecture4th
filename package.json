@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www --exec babel-node --presets @babel/preset-env",
-    "test": "NODE_ENV=test npm run migrate:reset && NODE_ENV=test npm run migrate && NODE_ENV=test ./node_modules/.bin/jest tests --coverage",
+    "test": "cross-env NODE_ENV=test npm run migrate:reset && cross-env NODE_ENV=test npm run migrate && cross-env NODE_ENV=test ./node_modules/.bin/jest tests --coverage",
     "migrate": "sequelize db:migrate",
     "migrate:reset": "sequelize db:migrate:undo:all"
   },
@@ -22,7 +22,9 @@
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.10.3"
+    "nodemon": "^1.19.1",
+    "sequelize": "^5.10.3",
+    "sequelize-cli": "^5.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -32,6 +34,7 @@
     "@babel/preset-env": "^7.5.5",
     "babel-core": "^6.26.3",
     "babel-jest": "^24.8.0",
+    "cross-env": "^5.2.0",
     "eslint": "^6.1.0",
     "jest": "^24.8.0",
     "random-string": "^0.2.0",
