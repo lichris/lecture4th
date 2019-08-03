@@ -12,7 +12,7 @@ module.exports = {
       uid: {
         allowNull: false,
         unique: true,
-        type: Sequelize.STRING
+        type: 'BINARY(6)'
       },
       nickname: {
         allowNull: false,
@@ -39,6 +39,7 @@ module.exports = {
     })
   },
 
+  // eslint-disable-next-line no-unused-vars
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('users')
   }
