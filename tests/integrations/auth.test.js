@@ -20,7 +20,9 @@ beforeAll(async () => {
 
 afterAll(() => { models.sequelize.close() })
 
-test('임시 테스트코드', async () => {
+let access
+
+test('로그인 후 정상적으로 jwt 를 받아야 합니다.', async () => {
   let res = await request(app)
     .post('/v1/auth/login')
     .send({
@@ -28,5 +30,18 @@ test('임시 테스트코드', async () => {
       password
     })
 
+  access = res.body.accessToken
+
   expect(res.body.accessToken).toBeTruthy()
 })
+
+test('위에서 받은 jwt 로 유효한 인증을 받아야 합니다.', async () => {
+  let res = await request(app)
+    .get('/v1/auth/check')
+    .set('Authorization', `Bearer ${ access }`)
+
+  expect(res.statusCode).toBe(200)
+
+  console.error(res.body.message)
+})
+

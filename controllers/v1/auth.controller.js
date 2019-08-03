@@ -2,6 +2,17 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import models from '../../models'
 
+const check = async (req, res, next) => {
+  try {
+    console.log(req.user)
+
+    return res.status(200)
+      .json({ message: '인증되었습니다. 축하합니다!' })
+  } catch (err) {
+    next(err)
+  }
+}
+
 const login = async (req, res, next) => {
   try {
     // 요청을 보낼때, nickname 과 password 를 body 에 담아서 줌
@@ -48,4 +59,7 @@ const comparePassword = async (password, password2) => {
   return match
 }
 
-export { login }
+export {
+  login,
+  check
+}
