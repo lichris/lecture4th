@@ -20,13 +20,16 @@ export default async (req, res, next) => {
       }
     )
 
-    let user = null
-
-    user = await models.User.findOne({
+    let user = await models.User.findOne({
       where: {
         uid: Buffer(payload.uid, 'hex')
       }
     })
+
+    if (!user) {
+      return res.status(401)
+        .json({ message: '로그인이 필요합니다.' })
+    }
 
     // eslint-disable-next-line require-atomic-updates
     req.user = user
