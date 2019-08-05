@@ -2,13 +2,18 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import models from '../../models'
 
-const check = async (req, res, next) => {
+const register = async (req, res, next) => {
   try {
-    console.log(req.user)
+    const user = await models.User.create({
+      nickname: req.body.nickname,
+      password: req.body.password,
+      profileImg: req.file.filename
+    })
 
-    return res.status(200)
-      .json({ message: '인증되었습니다. 축하합니다!' })
+    return res.status(201)
+      .json(user)
   } catch (err) {
+    console.error(err)
     next(err)
   }
 }
@@ -60,6 +65,6 @@ const comparePassword = async (password, password2) => {
 }
 
 export {
-  login,
-  check
+  register,
+  login
 }

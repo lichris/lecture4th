@@ -1,16 +1,18 @@
 import express from 'express'
-import auth from '../../middlewares/auth.middleware'
-import { login, check } from '../../controllers/v1/auth.controller'
+import { register, login } from '../../controllers/v1/auth.controller'
+import { upload } from '../../middlewares/image.middleware'
 
 const router = express.Router()
 
-router.route('/login')
-  .post(login)
+router.route('/register')
+  .post(
+    upload.single('profileImg'),
+    register
+  )
 
-router.route('/check')
-  .get(
-    auth,
-    check
+router.route('/login')
+  .post(
+    login
   )
 
 export default router

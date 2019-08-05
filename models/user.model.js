@@ -30,10 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       profileImg: {
         allowNull: true,
         defaultValue: null,
-        type: DataTypes.STRING,
-        validate: {
-          isUrl: true
-        }
+        type: DataTypes.STRING
       }
     },
     {

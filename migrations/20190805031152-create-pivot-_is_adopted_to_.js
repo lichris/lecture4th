@@ -29,24 +29,13 @@ module.exports = {
       },
       status: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.ENUM('pending', 'approved', 'declined')
       },
       doneAt: {
         allowNull: true,
         defaultValue: null,
         type: Sequelize.DATE
       }
-    }).then(() => {
-      return queryInterface.addIndex(
-        '_is_adopted_to_',
-        [
-          'dogId',
-          'userId'
-        ],
-        {
-          type: 'unique'
-        }
-      )
     })
   },
 
