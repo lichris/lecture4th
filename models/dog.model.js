@@ -52,5 +52,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
+  Dog.associate = function (models) {
+    Dog.hasMany(models.DogImage, {
+      as: 'imgs',
+      foreignKey: 'dogId'
+    })
+
+    Dog.hasMany(models.DogVaccine, {
+      as: 'vaccines',
+      foreignKey: 'dogId'
+    })
+
+    Dog.belongsToMany(models.User, {
+      as: 'users',
+      through: 'IsAdoptedTo',
+      foreignKey: 'dogId',
+      otherKey: 'userId'
+    })
+  }
+
   return Dog
 }

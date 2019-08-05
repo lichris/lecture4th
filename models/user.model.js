@@ -42,6 +42,25 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
+  User.associate = function (models) {
+    User.hasOne(models.Admin, {
+      as: 'admin',
+      foreignKey: 'userId'
+    })
+
+    User.hasOne(models.UserProfile, {
+      as: 'profile',
+      foreignKey: 'userId'
+    })
+
+    User.belongsToMany(models.Dog, {
+      as: 'dogs',
+      through: 'IsAdoptedTo',
+      foreignKey: 'userId',
+      otherKey: 'dogId'
+    })
+  }
+
   // eslint-disable-next-line no-unused-vars
   User.beforeSave(async (user, options) => {
     if (user.changed('password')) {
