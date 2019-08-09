@@ -23,7 +23,10 @@ export default async (req, res, next) => {
     let user = await models.User.findOne({
       where: {
         uid: Buffer(payload.uid, 'hex')
-      }
+      },
+      include: [
+        { model: models.User, as: 'profile' }
+      ]
     })
 
     if (!user) {

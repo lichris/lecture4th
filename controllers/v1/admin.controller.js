@@ -97,21 +97,21 @@ const deleteDog = async (req, res, next) => {
   }
 }
 
-const approveAdoption = async (req, res, next) => {
-  try {
+// const approveAdoption = async (req, res, next) => {
+//   try {
 
-  } catch (err) {
-    next(err)
-  }
-}
+//   } catch (err) {
+//     next(err)
+//   }
+// }
 
-const declineAdoption = async (req, res, next) => {
-  try {
+// const declineAdoption = async (req, res, next) => {
+//   try {
 
-  } catch (err) {
-    next(err)
-  }
-}
+//   } catch (err) {
+//     next(err)
+//   }
+// }
 
 export {
   getUsers,
@@ -119,7 +119,7 @@ export {
   getDogs,
   createDog,
   updateDog,
-  deleteDog,
-  approveAdoption,
-  declineAdoption
+  deleteDog
+  // approveAdoption
+  // declineAdoption
 }

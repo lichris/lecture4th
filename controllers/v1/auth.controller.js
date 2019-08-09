@@ -58,6 +58,19 @@ const login = async (req, res, next) => {
   }
 }
 
+const changePassword = async (req, res, next) => {
+  try {
+    req.user.password = req.body.password
+
+    await req.user.save()
+
+    return res.status(200)
+      .json({ message: '비밀번호를 변경했습니다.' })
+  } catch (err) {
+    next(err)
+  }
+}
+
 const comparePassword = async (password, password2) => {
   const match = await bcrypt.compare(password, password2)
 
@@ -66,5 +79,6 @@ const comparePassword = async (password, password2) => {
 
 export {
   register,
-  login
+  login,
+  changePassword
 }
