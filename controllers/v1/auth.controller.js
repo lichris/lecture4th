@@ -7,7 +7,7 @@ const register = async (req, res, next) => {
     const user = await models.User.create({
       nickname: req.body.nickname,
       password: req.body.password,
-      profileImg: req.file.filename
+      profileImg: `/images/users/${ req.file.filename }`
     })
 
     return res.status(201)
