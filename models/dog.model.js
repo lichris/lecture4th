@@ -71,5 +71,15 @@ module.exports = (sequelize, DataTypes) => {
     })
   }
 
+  Dog.prototype.toJSON = function () {
+    const values = Object.assign({}, this.get())
+
+    delete values.id
+    delete values.createdAt
+    delete values.updatedAt
+
+    return values
+  }
+
   return Dog
 }
