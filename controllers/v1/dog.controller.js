@@ -5,7 +5,10 @@ const get = async (req, res, next) => {
     const dogs = await models.Dog.findAll({
       where: {
         isAdopted: false
-      }
+      },
+      include: [
+        { model: models.DogImage, as: 'images' }
+      ]
     })
 
     return res.status(200)

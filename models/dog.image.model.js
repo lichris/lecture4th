@@ -24,5 +24,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
+  DogImage.prototype.toJSON = function () {
+    const values = Object.assign({}, this.get())
+
+    delete values.id
+    delete values.dogId
+
+    return values
+  }
+
   return DogImage
 }
