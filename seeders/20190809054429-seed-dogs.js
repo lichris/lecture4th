@@ -1,5 +1,6 @@
 'use strict'
 require('dotenv').config()
+import { generate } from '../utils/uid.util'
 
 /* eslint-disable */
 module.exports = {
@@ -8,6 +9,7 @@ module.exports = {
       'dogs',
       [
         {
+          uid: Buffer(generate(), 'hex'),
           name: '두리',
           type: '리트리버',
           age: 2,
@@ -15,6 +17,7 @@ module.exports = {
           thumbnailImg: '/images/dogs/duri1.jpg'
         },
         {
+          uid: Buffer(generate(), 'hex'),
           name: '루루',
           type: '셰퍼드',
           age: 2,
@@ -23,6 +26,7 @@ module.exports = {
         },
         //해피
         {
+          uid: Buffer(generate(), 'hex'),
           name: '해피',
           type: '스피츠',
           age: 1,
@@ -31,6 +35,7 @@ module.exports = {
         },
         //호두
         {
+          uid: Buffer(generate(), 'hex'),
           name: '호두',
           type: '말라뮤트',
           age: 0,
@@ -39,6 +44,7 @@ module.exports = {
         },
         //사랑이
         {
+          uid: Buffer(generate(), 'hex'),
           name: '사랑이',
           type: '요크셔테리어',
           age: 1,
@@ -47,6 +53,7 @@ module.exports = {
         },
         //몽이
         {
+          uid: Buffer(generate(), 'hex'),
           name: '몽이',
           type: '시바',
           age: 1,
@@ -54,6 +61,7 @@ module.exports = {
           thumbnailImg: '/images/dogs/mong1.png'
         },
         {
+          uid: Buffer(generate(), 'hex'),
           name: '초코',
           type: '포메라니안',
           age: 0,
