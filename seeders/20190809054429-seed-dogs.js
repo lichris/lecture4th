@@ -1,5 +1,6 @@
 'use strict'
 require('dotenv').config()
+import moment from 'moment'
 import { generate } from '../utils/uid.util'
 
 /* eslint-disable */
@@ -14,7 +15,9 @@ module.exports = {
           type: '리트리버',
           age: 2,
           gender: 'm',
-          thumbnailImg: '/images/dogs/duri1.jpg'
+          thumbnailImg: '/images/dogs/duri1.jpg',
+          createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+          updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
         },
         {
           uid: Buffer(generate(), 'hex'),
@@ -22,7 +25,9 @@ module.exports = {
           type: '셰퍼드',
           age: 2,
           gender: 'm',
-          thumbnailImg: '/images/dogs/lulu1.jpg'
+          thumbnailImg: '/images/dogs/lulu1.jpg',
+          createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+          updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
         },
         //해피
         {
@@ -31,7 +36,9 @@ module.exports = {
           type: '스피츠',
           age: 1,
           gender: 'f',
-          thumbnailImg: '/images/dogs/happy1.png'
+          thumbnailImg: '/images/dogs/happy1.png',
+          createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+          updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
         },
         //호두
         {
@@ -40,7 +47,9 @@ module.exports = {
           type: '말라뮤트',
           age: 0,
           gender: 'f',
-          thumbnailImg: '/images/dogs/hodoo1.png'
+          thumbnailImg: '/images/dogs/hodoo1.png',
+          createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+          updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
         },
         //사랑이
         {
@@ -49,7 +58,9 @@ module.exports = {
           type: '요크셔테리어',
           age: 1,
           gender: 'm',
-          thumbnailImg: '/images/dogs/love1.png'
+          thumbnailImg: '/images/dogs/love1.png',
+          createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+          updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
         },
         //몽이
         {
@@ -58,7 +69,9 @@ module.exports = {
           type: '시바',
           age: 1,
           gender: 'f',
-          thumbnailImg: '/images/dogs/mong1.png'
+          thumbnailImg: '/images/dogs/mong1.png',
+          createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+          updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
         },
         {
           uid: Buffer(generate(), 'hex'),
@@ -66,7 +79,9 @@ module.exports = {
           type: '포메라니안',
           age: 0,
           gender: 'm',
-          thumbnailImg: '/images/dogs/choco1.png'
+          thumbnailImg: '/images/dogs/choco1.png',
+          createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+          updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
         }
       ],
       {}
