@@ -7,7 +7,7 @@ const get = async (req, res, next) => {
         isAdopted: false
       },
       include: [
-        { model: models.DogImage, as: 'images' }
+        { model: models.DogImage, as: 'imgs' }
       ]
     })
 
