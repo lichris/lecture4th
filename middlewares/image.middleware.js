@@ -8,7 +8,11 @@ const uploadUserProfile = multer({
         cb(null, `${ __dirname }/../public/images/users/`)
       }
     },
-    filename
+    filename: (req, file, cb) => {
+      if (file) {
+        cb(null, new Date().valueOf() + path.extname(file.originalname))
+      }
+    }
   })
 })
 
@@ -19,15 +23,13 @@ const uploadDogProfile = multer({
         cb(null, `${ __dirname }/../public/images/dogs/`)
       }
     },
-    filename
+    filename: (req, file, cb) => {
+      if (file) {
+        cb(null, new Date().valueOf() + path.extname(file.originalname))
+      }
+    }
   })
 })
-
-const filename = (req, file, cb) => {
-  if (file) {
-    cb(null, new Date().valueOf() + path.extname(file.originalname))
-  }
-}
 
 export {
   uploadUserProfile,
